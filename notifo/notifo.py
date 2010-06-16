@@ -5,12 +5,13 @@
 import json
 import urllib
 import urllib2
+from base64 import encodestring
 
 class Notifo:
     """ Class for wrapping notifo.com """
-    def __init__(self, user, api_secret):
+    def __init__(self, user, secret):
         self.user = user
-        self.api_secret = api_secret
+        self.secret = secret
         self.root_url = "https://api.notifo.com/v1/"
 
     def subsribe_user(self, user):
@@ -58,18 +59,15 @@ class Notifo:
                 or
                 None on error
         """
-        # build basic auth stuff
-        passman = urllib2.HTTPPasswordMgrWithDefaultRealm()
-        passman.add_password(None, url, self.user, self.api_secret)
-        authhandler = urllib2.HTTPBasicAuthHandler(passman)
-        opener = urllib2.build_opener(authhandler)
-        urllib2.install_opener(opener)
+        auth = encodestring('%s:%s' % (self.user, self.secret)).replace('\n', '')
 
         if data is not None: # we have POST data if there is data
             values = urllib.urlencode(data)
             request = urllib2.Request(url, values)
+            request.add_header("Authorization", "Basic %s" % auth)
         else: # do a GET otherwise
             request = urllib2.Request(url)
+            request.add_header("Authorization", "Basic %s" % auth)
         try:
             response = urllib2.urlopen(request)
         except IOError: # no connection
@@ -77,3 +75,4 @@ class Notifo:
         json_data = response.read()
         data = json.loads(json_data)
         return data
+
