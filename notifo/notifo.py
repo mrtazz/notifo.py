@@ -16,7 +16,10 @@ class Notifo:
     def subsribe_user(self, user):
         """ method to subscribe a user to a service
         """
-        pass
+        url = self.root_url + "subscribe_user"
+        values = {}
+        values["username"] = user
+        return self._query(url, values)
 
     def send_notification(self):
         """ method to send a message to a user
@@ -24,7 +27,7 @@ class Notifo:
         pass
 
 
-def _query(self, url, data = None):
+    def _query(self, url, data = None):
         """ query method to do HTTP POST/GET
 
             Parameters:
