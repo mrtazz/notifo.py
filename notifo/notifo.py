@@ -32,7 +32,7 @@ class Notifo:
                 title -> name of the notification event
                 uri -> callback uri
         """
-        url = self.root_url = "send_notification"
+        url = self.root_url + "send_notification"
         values = {}
         if to is not None:
             values["to"] = to
@@ -44,7 +44,7 @@ class Notifo:
             values["title"] = title
         if uri is not None:
             values["uri"] = uri
-        return self.query(url, values)
+        return self._query(url, values)
 
     def _query(self, url, data = None):
         """ query method to do HTTP POST/GET
