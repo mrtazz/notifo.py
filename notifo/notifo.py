@@ -39,6 +39,13 @@ class Notifo:
                 or
                 None on error
         """
+        # build basic auth stuff
+        passman = urllib2.HTTPPasswordMgrWithDefaultRealm()
+        passman.add_password(None, url, self.user, self.api_secret)
+        authhandler = urllib2.HTTPBasicAuthHandler(passman)
+        opener = urllib2.build_opener(authhandler)
+        urllib2.install_opener(opener)
+
         if data is not None: # we have POST data if there is data
             values = urllib.urlencode(data)
             request = urllib2.Request(url, values)
