@@ -72,7 +72,5 @@ class Notifo:
             response = urllib2.urlopen(request)
         except IOError: # no connection
             return None
-        json_data = response.read()
-        data = json.loads(json_data)
-        return data
+        return json.loads(response.read())
 
