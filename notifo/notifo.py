@@ -12,20 +12,6 @@ class Notifo:
         self.user = user
         self.api_secret = api_secret
         self.root_url = "https://api.notifo.com/v1/"
-        # status codes (Request successful)
-        self.status_codes = {
-                                2201 : "OK.",
-                                2202 : "User is already subscribed."
-                            }
-        # error codes (Something went wrong)
-        self.error_codes = {
-                                1100 : "An error occurred.",
-                                1101 : "Invalid credentials.",
-                                1102 : "Not allowed to sent to user.",
-                                1105 : "No such user.",
-                                1106 : "Not allowed to subscribe user.",
-                                1107 : "Missing required parameters.",
-                           }
 
     def subsribe_user(self, user):
         """ method to subscribe a user to a service
