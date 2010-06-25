@@ -14,7 +14,7 @@ class Notifo:
         self.secret = secret
         self.root_url = "https://api.notifo.com/v1/"
 
-    def subsribe_user(self, user):
+    def subscribe_user(self, user):
         """ method to subscribe a user to a service
         """
         url = self.root_url + "subscribe_user"
