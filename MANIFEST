@@ -1,5 +1,6 @@
 HISTORY.rst
 README.rst
 setup.py
+bin/notifo_cli.py
 notifo/__init__.py
 notifo/notifo.py

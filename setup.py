@@ -25,6 +25,7 @@ setup(name = "notifo",
       author_email = "d@unwiredcouch.com",
       url = "http://github.com/mrtazz/notifo.py",
       packages = ["notifo"],
+      scripts = ["bin/notifo_cli.py"],
       license = "MIT",
       classifiers = (
                 "Development Status :: 4 - Beta",
