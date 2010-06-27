@@ -60,10 +60,13 @@ def main():
             params["uri"] = options.callback
 
         # send notification
-        result = notifo.send_notification(options.user, options.secret, **params)
+        result = notifo.send_notification(options.user,
+                                          options.secret,
+                                          **params)
 
     if result is None:
         print "Something went wrong. Check parameters and try again."
 
 if __name__ == '__main__':
     main()
+
