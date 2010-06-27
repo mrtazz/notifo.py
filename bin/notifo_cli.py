@@ -9,7 +9,7 @@ from optparse import OptionParser
 
 def init_parser():
     """ function to init option parser """
-    usage = "usage: %prog -u user -s secret -n name [-l label]\
+    usage = "usage: %prog -u user -s secret -n name [-l label] \
 [-t title] [-c callback] TEXT"
 
     parser = OptionParser(usage, version="%prog " + notifo.__version__)
