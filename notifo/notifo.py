@@ -2,7 +2,15 @@
 
 """ notifo.py - python wrapper for notifo.com """
 
-import json
+try:
+  import json
+except ImportError:
+  try:
+    import simplejson as json
+  except ImportError:
+    # For Google AppEngine
+    from django.utils import simplejson as json
+
 import urllib
 import urllib2
 from base64 import encodestring
