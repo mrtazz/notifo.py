@@ -1,7 +1,7 @@
 History
 ========
 
-0.2.0 (2010-07-05)
+0.2.1 (2010-07-05)
 -------------------
 * fallbacks for json import
 * improved HTTP error handling
