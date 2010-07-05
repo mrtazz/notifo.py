@@ -78,7 +78,10 @@ class Notifo:
             request.add_header("Authorization", "Basic %s" % auth)
         try:
             response = urllib2.urlopen(request)
-        except IOError: # no connection
-            return None
+        except IOError, e: # no connection
+            return {"status" : "error",
+                    "response_code" : e.code,
+                    "response_message" : e.msg
+                   }
         return json.loads(response.read())
 
