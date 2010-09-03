@@ -51,7 +51,10 @@ def main():
     else:
         params = {}
         params["to"] = options.name
-        params["msg"] = args[0]
+	m = ''
+	for a in args:
+		m = "%s %s" %(m, a)
+        params["msg"] = m
         if options.label:
             params["label"] = options.label
         if options.title:
