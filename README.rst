@@ -32,6 +32,6 @@ Return data is the parsed json status code::
 
 There is also a cli client included::
 
-    notifo_cli.py -u user -s secret -n name [-l label] [-t title] [-c callback] TEXT
+    notifo_cli.py -u user -s secret -n name [-l label] [-t title] [-c callback] [TEXT]
 
 .. _notifo.com: http://notifo.com
