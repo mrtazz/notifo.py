@@ -10,7 +10,7 @@ from optparse import OptionParser
 def init_parser():
     """ function to init option parser """
     usage = "usage: %prog -u user -s secret -n name [-l label] \
-[-t title] [-c callback] TEXT"
+[-t title] [-c callback] [TEXT]"
 
     parser = OptionParser(usage, version="%prog " + notifo.__version__)
     parser.add_option("-u", "--user", action="store", dest="user",
@@ -47,7 +47,7 @@ def main():
 
     # If there is no message, we probably want to subscribe a user
     if len(args) < 1:
-        parser.error("No message text given.")
+        result = notifo.subscribe_user(options.user, options.secret, options.name)
     else:
         params = {}
         params["to"] = options.name
