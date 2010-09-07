@@ -28,6 +28,11 @@ class TestNotifyUser(unittest.TestCase):
                                 to=self.user, msg="foo test", label="label")
         self.assertEqual(2201, res["response_code"])
 
+    def test_message_with_plain_args(self):
+        res = send_notification(self.user, self.user_token,
+                                self.user, "foo test", "label")
+        self.assertEqual(2201, res["response_code"])
+
     def test_message_with_title(self):
         res = send_notification(self.user, self.user_token,
                                 to=self.user, msg="foo test", title="title")
