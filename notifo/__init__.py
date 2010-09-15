@@ -12,3 +12,6 @@ def send_notification(login, pw, to=None, msg=None, label=None,
 
 def subscribe_user(login, pw, user):
     return Notifo(login, pw).subscribe_user(user)
+
+def send_message(login, pw, to, msg):
+    return Notifo(login, pw).send_message(to, msg)

@@ -55,6 +55,22 @@ class Notifo:
             values["uri"] = uri
         return self._query(url, values)
 
+    def send_message(self, to=None, msg=None):
+        """ method to send a message to a user
+
+            Parameters:
+                to -> recipient
+                msg -> message to send
+        """
+        url = self.root_url + "send_message"
+        values = {}
+        if to is not None:
+            values["to"] = to
+        if msg is not None:
+            values["msg"] = msg
+        return self._query(url, values)
+
+
     def _query(self, url, data = None):
         """ query method to do HTTP POST/GET
 
