@@ -25,6 +25,8 @@ def init_parser():
                       help="title of the notification")
     parser.add_option("-c", "--callback", action="store", dest="callback",
                       help="callback URL to call")
+    parser.add_option("-m", "--message", action="store_true", dest="message",
+                      default=False, help="send message instead of notification")
 
     (options, args) = parser.parse_args()
     return (parser, options, args)
@@ -51,21 +53,22 @@ def main():
     else:
         params = {}
         params["to"] = options.name
-	m = ''
-	for a in args:
-		m = "%s %s" %(m, a)
+        m = ''
+        for a in args:
+            m = "%s %s" %(m, a)
         params["msg"] = m
-        if options.label:
-            params["label"] = options.label
-        if options.title:
-            params["title"] = options.title
-        if options.callback:
-            params["uri"] = options.callback
 
-        # send notification
-        result = notifo.send_notification(options.user,
-                                          options.secret,
-                                          **params)
+        if options.message == True:
+            result = notifo.send_message(options.user, options.secret, **params)
+        else:
+            if options.label:
+                params["label"] = options.label
+            if options.title:
+                params["title"] = options.title
+            if options.callback:
+                params["uri"] = options.callback
+            result = notifo.send_notification(options.user,options.secret,
+                                              **params)
 
     if result is None:
         print "Something went wrong. Check parameters and try again."
