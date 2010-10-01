@@ -3,7 +3,7 @@
 from notifo import Notifo
 
 __author__ = "Daniel Schauenberg"
-__version__ = "0.2.2"
+__version__ = "0.3.0"
 __license__ = "MIT"
 
 def send_notification(login, pw, to=None, msg=None, label=None,
