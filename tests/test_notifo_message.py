@@ -32,7 +32,7 @@ class TestNotifyUser(unittest.TestCase):
     def test_message_banned(self):
         res = send_message(self.banned, self.banned_token,
                                 to=self.user, msg="foo test")
-        self.assertEqual(1102, res["response_code"])
+        self.assertEqual(403, res["response_code"])
 
     def test_message_provider(self):
         res = send_message(self.provider, self.provider_token,
@@ -42,7 +42,7 @@ class TestNotifyUser(unittest.TestCase):
     def test_message_provider_banned(self):
         res = send_message(self.provider_banned, self.provider_banned_token,
                                 to=self.user, msg="foo test")
-        self.assertEqual(1102, res["response_code"])
+        self.assertEqual(403, res["response_code"])
 
 if __name__ == '__main__':
     unittest.main()
