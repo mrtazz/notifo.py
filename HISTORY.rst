@@ -1,6 +1,10 @@
 History
 ========
 
+0.2.2 (2010-09-07)
+-------------------
+* fix kwargs issue with exported methods
+
 0.2.1 (2010-07-05)
 -------------------
 * fallbacks for json import
