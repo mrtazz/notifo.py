@@ -1,6 +1,12 @@
 History
 ========
 
+0.3.0 (2010-10-01)
+-------------------
+* add support for messaging
+* subscribe user from cli client if no msg text is given
+* message text with spaces allowed without quotes
+
 0.2.2 (2010-09-07)
 -------------------
 * fix kwargs issue with exported methods
