@@ -1,6 +1,13 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
+"""
+    notifo.py
+    ~~~~~~~~~~~
 
-""" notifo.py - python wrapper for notifo.com """
+    python wrapper for notifo.com
+
+    :copyright: (c) 2010 by Daniel Schauenberg.
+    :license: MIT, see LICENSE for more details.
+"""
 
 try:
   import json
@@ -24,6 +31,13 @@ class Notifo:
 
     def subscribe_user(self, user):
         """ method to subscribe a user to a service
+
+        Arguments:
+            - user(string): user to subscribe to the service
+
+        Returns:
+            A dict containing the parsed response or error descriptions
+
         """
         url = self.root_url + "subscribe_user"
         values = {}
@@ -34,12 +48,17 @@ class Notifo:
                           title=None, uri=None):
         """ method to send a message to a user
 
-            Parameters:
-                to -> recipient
-                msg -> message to send
-                label -> application description
-                title -> name of the notification event
-                uri -> callback uri
+        Arguments:
+            All parameters are expected as strings
+            - to: the recipient of the notification
+            - msg: message body to send
+            - label: application description
+            - title: name of the notification event
+            - uri: callback uri
+
+        Returns:
+            A dict containing the parsed response or error descriptions
+
         """
         url = self.root_url + "send_notification"
         values = {}
@@ -58,9 +77,14 @@ class Notifo:
     def send_message(self, to=None, msg=None):
         """ method to send a message to a user
 
-            Parameters:
-                to -> recipient
-                msg -> message to send
+        Arguments:
+            All parameters are expected as strings
+            - to: recipient
+            - msg: message to send
+
+        Returns:
+            A dict containing the parsed response or error descriptions
+
         """
         url = self.root_url + "send_message"
         values = {}
@@ -74,14 +98,13 @@ class Notifo:
     def _query(self, url, data = None):
         """ query method to do HTTP POST/GET
 
-            Parameters:
-                url -> the url to POST/GET
-                data -> header_data as a dict (only for POST)
+        Arguments:
+            - url (string): the url to POST/GET
+            - data (dict): header_data (only for POST)
 
-            Returns:
-                Parsed JSON data as dict
-                or
-                None on error
+        Returns:
+            A dict containing the parsed response or error descriptions
+
         """
         auth = encodestring('%s:%s' % (self.user, self.secret)).replace('\n', '')
 
