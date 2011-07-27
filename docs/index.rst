@@ -18,10 +18,6 @@ Indices and tables
 
 Quickstart
 -----------
-simplenote.py is a simple wrapper around the simplenoteapp.com web service. It
-provides the Simplenote object, with a set of convenience methods to interact
-with the service.
-
 notifo.py is a python client for the notifo.com API. It supports subscribing
 users to a service and sending notifications and messages::
 
