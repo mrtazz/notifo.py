@@ -120,5 +120,10 @@ class Notifo:
                     "response_code" : e.code,
                     "response_message" : e.msg
                    }
+        except URLError, e:
+            return {"status" : "error",
+                    "response_code" : e.errno,
+                    "response_message" : e.message
+                   }
         return json.loads(response.read())
 
