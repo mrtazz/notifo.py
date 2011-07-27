@@ -10,8 +10,7 @@ def send_notification(login, pw, to=None, msg=None, label=None,
                       title=None, uri=None):
     """ exported API function to send notifications
 
-    Arguments:
-        All parameters are exptected as strings
+    Arguments (all exptected as strings):
         - login: notifo account name
         - pw: notifo API secret
         - to: account name to send the notification to
@@ -29,8 +28,7 @@ def send_notification(login, pw, to=None, msg=None, label=None,
 def subscribe_user(login, pw, user):
     """ exported API function to subscribe a user to a service
 
-    Arguments:
-        All parameters are expected as strings
+    Arguments (all exptected as strings):
         - login: notifo service provider account name
         - pw: notifo service account API token
         - user: user to subscribe to the service
@@ -44,8 +42,7 @@ def subscribe_user(login, pw, user):
 def send_message(login, pw, to, msg):
     """ exported API function to send a message to a user
 
-    Arguments:
-        All parameters are expected as strings
+    Arguments (all exptected as strings):
         - login: notifo account name
         - pw: notifo API secret
         - to: recipient to send the message to

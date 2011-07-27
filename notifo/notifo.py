@@ -48,8 +48,7 @@ class Notifo:
                           title=None, uri=None):
         """ method to send a message to a user
 
-        Arguments:
-            All parameters are expected as strings
+        Arguments (all expected as strings):
             - to: the recipient of the notification
             - msg: message body to send
             - label: application description
@@ -77,8 +76,7 @@ class Notifo:
     def send_message(self, to=None, msg=None):
         """ method to send a message to a user
 
-        Arguments:
-            All parameters are expected as strings
+        Arguments (all expected as strings):
             - to: recipient
             - msg: message to send
 
