@@ -26,7 +26,7 @@ def init_parser():
     parser.add_option("-c", "--callback", action="store", dest="callback",
                       help="callback URL to call")
     parser.add_option("-m", "--message", action="store_true", dest="message",
-                      default=False, help="send message instead of notification")
+                      default=False, help="send message instead of notify")
 
     (options, args) = parser.parse_args()
     return (parser, options, args)
@@ -49,17 +49,19 @@ def main():
 
     # If there is no message, we probably want to subscribe a user
     if len(args) < 1:
-        result = notifo.subscribe_user(options.user, options.secret, options.name)
+        result = notifo.subscribe_user(options.user, options.secret,
+                                       options.name)
     else:
         params = {}
         params["to"] = options.name
-        m = ''
-        for a in args:
-            m = "%s %s" %(m, a)
-        params["msg"] = m
+        msg = ''
+        for arg in args:
+            msg = "%s %s" % (msg, arg)
+        params["msg"] = msg
 
         if options.message == True:
-            result = notifo.send_message(options.user, options.secret, **params)
+            result = notifo.send_message(options.user, options.secret,
+                                         **params)
         else:
             if options.label:
                 params["label"] = options.label
@@ -67,7 +69,8 @@ def main():
                 params["title"] = options.title
             if options.callback:
                 params["uri"] = options.callback
-            result = notifo.send_notification(options.user,options.secret,
+            result = notifo.send_notification(options.user,
+                                              options.secret,
                                               **params)
 
     if result is None:
