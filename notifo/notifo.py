@@ -126,6 +126,11 @@ class Notifo:
                     "response_message" : e.message
                    }
         res = response.read()
-        print type(res)
-        return json.loads(res)
+        try:
+            return json.loads(res)
+        except ValueError:
+            return {"status": "error",
+                    "response_code" : -1,
+                    "response_message" : "JSON decode error"
+                  }
 
