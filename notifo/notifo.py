@@ -126,6 +126,6 @@ class Notifo:
                     "response_message" : e.message
                    }
         res = response.read()
-        print res
+        print type(res)
         return json.loads(res)
 
