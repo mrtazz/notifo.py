@@ -10,13 +10,13 @@
 """
 
 try:
-  import json
+    import json
 except ImportError:
-  try:
-    import simplejson as json
-  except ImportError:
-    # For Google AppEngine
-    from django.utils import simplejson as json
+    try:
+        import simplejson as json
+    except ImportError:
+        # For Google AppEngine
+        from django.utils import simplejson as json
 
 import urllib
 import urllib2

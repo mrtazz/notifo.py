@@ -1,4 +1,9 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
+"""
+    __init__.py
+    ~~~~~~~~~~~
+    API export for notifo.py
+"""
 
 from notifo import Notifo
 
@@ -23,7 +28,7 @@ def send_notification(login, pw, to=None, msg=None, label=None,
         A dict containing the parsed response or error descriptions
 
     """
-    return Notifo(login, pw).send_notification(to,msg,label,title,uri)
+    return Notifo(login, pw).send_notification(to, msg, label, title, uri)
 
 def subscribe_user(login, pw, user):
     """ exported API function to subscribe a user to a service
