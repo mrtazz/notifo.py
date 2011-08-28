@@ -125,5 +125,7 @@ class Notifo:
                     "response_code" : e.errno,
                     "response_message" : e.message
                    }
-        return json.loads(response.read())
+        res = response.read()
+        print res
+        return json.loads(res)
 
