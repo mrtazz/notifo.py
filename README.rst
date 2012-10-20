@@ -21,16 +21,26 @@ Usage
 ======
 notifo.py can be imported into any python module::
 
-    import notifo
+	from notifo import Notifo
 
-    notifo.send_notification(login, token, recipient, msg, label, title, uri)
-    notifo.send_message(login, token, to, msg)
-    notifo.subscribe_user(login, token, user)
+	# create a Notifo object
+	notifo = Notifo('username','apikey') #fill in your username and api key here
 
-Return data is the parsed json status code::
+	# Tell your object to send a notification
+	notifo.send_notification('to','Message','label','title','uri') #fill in your username
 
-    {u'status': u'success', u'response_code': 2201, u'response_message': u'OK'}
+	# Successful Transmission response
+	# Return data is the parsed json status code::
+	
+	{u'status': u'success', u'response_code': 2201, u'response_message': u'OK'}
 
+	# Examples of all three methods.
+	
+    notifo.send_notification(recipient, msg, label, title, uri)
+    notifo.send_message(to, msg)
+    notifo.subscribe_user(user)
+
+	
 There is also a cli client included::
 
     notifo_cli.py -u user -s secret -n name [-m] [-l label] [-t title] [-c callback] [TEXT]
